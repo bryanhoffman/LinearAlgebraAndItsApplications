@@ -29,6 +29,20 @@ def multiply(Matrix1, Matrix2):
     else:
         return "Not possible"
 
+def solve(Matrix):
+    h = len(Matrix)
+    w = len(Matrix[0])
+    Matrix = echelon_form(Matrix)
+    solution = [0] * h
+    for i in range(0, h):
+        sum = 0.0
+        for j in range(0, h):
+            sum = sum + Matrix[h - 1 - i][w - 2 - j] * solution[h - 1 - j]
+
+        solution[h - 1 - i] = (Matrix[h - 1 - i][w - 1] - sum) / Matrix[h - 1 - i][w - 2 - i]
+
+    return solution
+
 def transpose(Matrix):
     h = len(Matrix)
     w = len(Matrix[0])
