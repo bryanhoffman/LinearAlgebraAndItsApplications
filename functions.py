@@ -9,6 +9,10 @@ def echelon_form(Matrix):
             a = Matrix[j][i] / Matrix[i][i]
             for k in range(i, w):
                 Matrix[j][k] = Matrix[j][k] - a * Matrix[i][k]
+    for i in range(h):
+        a = Matrix[i][i]
+        for j in range(w):
+            Matrix[i][j] = Matrix[i][j] / a
     return Matrix
 
 
